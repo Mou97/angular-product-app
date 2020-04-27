@@ -9,13 +9,16 @@ import { Product } from "../Product";
 export class ProductsComponent implements OnInit {
   products: Array<Product> = [];
 
-  newProduct: Product;
-
   constructor() {}
 
   ngOnInit(): void {}
 
   onClickSubmit(formData): void {
-    console.log(formData);
+    let newPorduct: Product = new Product(
+      formData.name,
+      parseFloat(formData.price)
+    );
+    this.products.push(newPorduct);
+    console.log(this.products);
   }
 }

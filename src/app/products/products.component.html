@@ -1,31 +1,47 @@
-<h1>Add a product</h1>
+<div class="container">
+  <h1>Add a product</h1>
 
-<form #addProduct="ngForm" (ngSubmit)="onClickSubmit(addProduct.value)">
-  <div class="form-group">
-    <label for="name">Product name</label>
-    <input type="text" class="form-control" name="name" placeholder="Enter the products name" ngModel #name='ngModel'
-      required minlength="5" maxlength="20">
-    <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
-      Wrong name format
+  <form #addProduct="ngForm" (ngSubmit)="onClickSubmit(addProduct.value)">
+    <div class="form-group">
+      <label for="name">Product name</label>
+      <input type="text" class="form-control" name="name" placeholder="Enter the products name" ngModel #name='ngModel'
+        required minlength="5" maxlength="20">
+      <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+        Wrong name format
+      </div>
+
+      <label for="price">Price</label>
+      <input type="number" class="form-control" name="price" placeholder="Enter the price" ngModel #price="ngModel"
+        min="0.5" step="0.00" required>
+      <div [hidden]="price.valid || price.pristine" class="alert alert-danger">
+        Wrong price format
+      </div>
+      <br>
+      <button class=" btn btn-success " type="submit" [disabled]="!addProduct.valid">Add Product</button>
     </div>
+  </form>
 
-    <label for="price">Price</label>
-    <input type="number" class="form-control" name="price" placeholder="Enter the price" ngModel #price="ngModel"
-      min="0.5" step="0.00" required>
-    <div [hidden]="price.valid || price.pristine" class="alert alert-danger">
-      Wrong price format
-    </div>
-    <br>
-    <button class=" btn btn-success " type="submit" [disabled]="!addProduct.valid">Add Product</button>
-  </div>
-</form>
+  <!-- table section -->
 
-<!-- table section -->
+  <ng-template [ngIf]="products.length>0" [ngIfElse]="none">
+    <table class="table">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let prod of products">
+          <td>{{prod.name}}</td>
+          <td>{{prod.price}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </ng-template>
 
-<ng-template [ngIf]="products.length>0" [ngIfElse]="none">
+  <ng-template #none>
+    <h5 class="alert alert-secondary">There is no products for the moment.</h5>
+  </ng-template>
 
-</ng-template>
-
-<ng-template #none>
-  <p>There is no products for the moment.</p>
-</ng-template>
+</div>
