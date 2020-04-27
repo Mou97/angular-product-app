@@ -4,25 +4,30 @@
   --primary-color: #575fcf
 }
 
-body {
+* {
   margin: 0;
+  padding: 0;
+}
+
+body {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 18px;
 }
 
-.container {
+/* .container {
   width: 80%;
   margin: 0 auto;
-}
+} */
 
 header {
   background-color: var(--primary-color);
   padding: 1em 0;
 }
 
-header a {
+header .container a {
   color: white;
   text-decoration: none;
+
 }
 
 .logo {
