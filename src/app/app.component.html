@@ -11,5 +11,28 @@
   </div>
 </header>
 
+<div class="container-fluid">
+  <div class="row">
+    <div class="col">
+      <router-outlet></router-outlet>
+    </div>
+    <div class="side col-md-3">
+      <h1>aside 2</h1>
+    </div>
+  </div>
+</div>
 
-<router-outlet></router-outlet>
+
+<footer>
+  <div class="container">
+    <a href="#" RouterLink='/contact'>Contact us</a>
+    <span class="fa-stack fa-large">
+      <i class="fa fa-circle-thin fa-stack-2x"></i>
+      <i class="fa fa-twitter fa-stack-1x"></i>
+    </span>
+    <span class="fa-stack fa-large">
+      <i class="fa fa-circle-thin fa-stack-2x"></i>
+      <i class="fa fa-facebook fa-stack-1x"></i>
+    </span>
+  </div>
+</footer>

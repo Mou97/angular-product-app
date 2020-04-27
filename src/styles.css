@@ -58,3 +58,27 @@ nav li:hover {
 h1 {
   margin-top: 2em;
 }
+
+.side {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  border: 1px solid black;
+}
+
+footer {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 1em;
+}
+
+footer .container a {
+  color: white;
+  text-decoration: none;
+  padding: 0 1em;
+}
+
+footer .container a:hover {
+  filter: brightness(85%);
+  text-decoration: none;
+}
